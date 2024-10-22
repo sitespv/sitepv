@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <!-- Importação da fonte Montserrat do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif; /* Aplicando a fonte Montserrat */
+        }
+    </style>
+</head>
+<body class="bg-black flex flex-col justify-center min-h-screen">
+
+    <img src="./img/titulo.png" class="w-full h-full mb-12"/>
+
+    <p class="text-center text-sm text-white mb-4 font-bold">Essa aula <b>sairá do ar</b> no dia <span class="diaDoMes text-white"></span></p>
+
+    <div class="flex items-center justify-center"> 
+        <video controls class="w-full max-w-4xl">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        // Função para pegar o dia, mês e ano atual
+        function pegarDiaAtual() {
+            const hoje = new Date();
+            const diaDoMes = hoje.getDate(); // Pega o dia do mês
+            const mes = hoje.getMonth() + 1; // Pega o mês (adicionando 1, pois começa em 0)
+            const ano = hoje.getFullYear(); // Pega o ano atual
+            document.querySelector('.diaDoMes').textContent = `${diaDoMes}/${mes}/${ano}`; // Insere o dia, mês e ano no span
+        }
+
+        // Chama a função quando a página carregar
+        window.onload = pegarDiaAtual;
+    </script>
+
+</body>
+</html>

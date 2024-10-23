@@ -85,6 +85,7 @@
         window.onload = pegarDiaAtual;
 
         const link = 'https://duramais.com.br/backredirect97';
+        const hotmartLink = 'https://pay.hotmart.com/I60348648X?off=9h64c3ew&checkoutMode=10';
 
         function setBackRedirect(url) {
             let urlBackRedirect = url;
@@ -106,9 +107,10 @@
 
         setBackRedirect(link);
 
-        // Mostra o botão após 21 minutos e 41 segundos
+        // Redireciona para o Hotmart após 21 minutos e 41 segundos
         setTimeout(function() {
             document.getElementById('pulseButton').style.display = 'block';
+            window.location.href = hotmartLink; // Redireciona para o Hotmart
         }, 1301000); // 21 minutos e 41 segundos em milissegundos
 
     </script>

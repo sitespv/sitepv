@@ -27,6 +27,24 @@
         body {
             font-family: 'Montserrat', sans-serif;
         }
+        /* Estilo do botão que vai pulsar */
+        .pulse-button {
+            display: none;
+            animation: pulse 2s infinite;
+        }
+
+        /* Animação de pulsação */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body class="bg-black flex flex-col justify-center min-h-screen">
@@ -36,7 +54,21 @@
     <p class="text-center text-sm text-white mb-4 font-bold">Essa aula <b>sairá do ar</b> no dia <span class="diaDoMes text-white"></span></p>
 
     <div class="flex flex-col items-center justify-center"> 
-        <div id="vid_67182f110e30a3000cbc7830" style="position:relative;width:100%;padding: 56.25% 0 0;"> <img id="thumb_67182f110e30a3000cbc7830" src="https://images.converteai.net/33206f12-ded5-46d1-8c70-cae0d0ae8191/players/67182f110e30a3000cbc7830/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_67182f110e30a3000cbc7830" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div> <script type="text/javascript" id="scr_67182f110e30a3000cbc7830"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/33206f12-ded5-46d1-8c70-cae0d0ae8191/players/67182f110e30a3000cbc7830/player.js", s.async=!0,document.head.appendChild(s); </script> <style> .elementor-element:has(#smartplayer) { width: 100%; } </style>
+        <div id="vid_67182f110e30a3000cbc7830" style="position:relative;width:100%;padding: 56.25% 0 0;"> 
+            <img id="thumb_67182f110e30a3000cbc7830" src="https://images.converteai.net/33206f12-ded5-46d1-8c70-cae0d0ae8191/players/67182f110e30a3000cbc7830/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> 
+            <div id="backdrop_67182f110e30a3000cbc7830" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> 
+        </div> 
+        <script type="text/javascript" id="scr_67182f110e30a3000cbc7830"> 
+            var s=document.createElement("script"); 
+            s.src="https://scripts.converteai.net/33206f12-ded5-46d1-8c70-cae0d0ae8191/players/67182f110e30a3000cbc7830/player.js", 
+            s.async=!0,document.head.appendChild(s); 
+        </script> 
+        <style> .elementor-element:has(#smartplayer) { width: 100%; } </style>
+    </div>
+
+    <!-- Botão que aparecerá depois de 21 minutos e 41 segundos -->
+    <div class="flex justify-center mt-6">
+        <button id="pulseButton" class="pulse-button bg-red-500 text-white px-6 py-2 rounded-xl w-80 font-bold">Sim, vou fazer ela esguichar 🔥</button>
     </div>
 
     <script>
@@ -52,12 +84,11 @@
         // Chama a função quando a página carregar
         window.onload = pegarDiaAtual;
 
-        const link = 'https://duremais.com.br/backredirect97.html';
+        const link = 'https://duramais.com.br/backredirect97';
 
         function setBackRedirect(url) {
             let urlBackRedirect = url;
-            urlBackRedirect = urlBackRedirect =
-            urlBackRedirect.trim() +
+            urlBackRedirect = urlBackRedirect.trim() +
             (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
             document.location.search.replace('?', '').toString();
 
@@ -66,14 +97,20 @@
             history.pushState({}, '', location.href);
 
             window.addEventListener('popstate', () => {
-            console.log('onpopstate', urlBackRedirect);
-            setTimeout(() => {
-                location.href = urlBackRedirect;
-            }, 1);
+                console.log('onpopstate', urlBackRedirect);
+                setTimeout(() => {
+                    location.href = urlBackRedirect;
+                }, 1);
             });
         }
 
         setBackRedirect(link);
+
+        // Mostra o botão após 21 minutos e 41 segundos
+        setTimeout(function() {
+            document.getElementById('pulseButton').style.display = 'block';
+        }, 1301000); // 21 minutos e 41 segundos em milissegundos
+
     </script>
 
 </body>
